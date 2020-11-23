@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>PortFolio Raavn</title>
+    <link
+      href="https://unpkg.com/tailwindcss@1.9.2/dist/tailwind.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js"
+      defer
+    ></script>
+
+    <style>
+      .bghero{
+        background-color: rgb(4, 12, 46);
+      }
+    </style>
+  </head>
+
+  <body class="bghero">
+    <nav
+      class="flex items-center justify-between flex-wrap p-6 fixed w-full z-10 top-0"
+      x-data="{ isOpen: false }"
+      @keydown.escape="isOpen = false"
+      :class="{ 'shadow-lg bghero' : isOpen , 'bghero' : !isOpen}"
+    >
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <a
+          class="text-white no-underline hover:text-white hover:no-underline"
+          href="#"
+        >
+          <span class="text-2xl pl-2"
+            ><i class="em em-grinning"></i> <span class="text-red-300">R</span>aavn <span class="text-green-500">S</span>harma</span
+          >
+        </a>
+      </div>
+
+      <!--Toggle button (hidden on large screens)-->
+      <button
+        @click="isOpen = !isOpen"
+        type="button"
+        class="block lg:hidden px-2 text-gray-200 hover:text-white focus:outline-none focus:text-white"
+        :class="{ 'transition transform-180': isOpen }"
+      >
+        <svg
+          class="h-6 w-6 fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            x-show="isOpen"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
+          />
+          <path
+            x-show="!isOpen"
+            fill-rule="evenodd"
+            d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+          />
+        </svg>
+      </button>
+
+      <!--Menu-->
+      <div
+        class="w-full flex-grow lg:flex lg:items-center lg:w-auto"
+        :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }"
+        @click.away="isOpen = false"
+        x-show.transition="true"
+      >
+        <ul
+          class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center"
+        >
+          <li class="mr-3">
+            <a
+              class="inline-block py-2 px-4 text-white no-underline text-lg font-medium"
+              href="#"
+              @click="isOpen = false"
+              >PROJECTS
+            </a>
+          </li>
+          <li class="mr-3">
+            <a
+              class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4 text-lg font-medium"
+              href="#"
+              @click="isOpen = false"
+              >BLOG
+            </a>
+          </li>
+          <li class="mr-3">
+            <a
+              class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4 text-lg font-medium border-2 border-indigo-100 hover:border-2 hover:border-indigo-600"
+              href="#"
+              @click="isOpen = false"
+              >CONTACT US
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section class="text-gray-700 body-font">
+      <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
+        <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center mt-12">
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-100">I am 
+            <br class="hidden lg:inline-block"><span class="text-red-400">Generate PortFolio</span>
+          </h1>
+          <p class="mb-8 leading-relaxed text-gray-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, exercitationem error tenetur laudantium culpa quasi ab deleniti nostrum repellendus tempore sed inventore soluta quos corrupti eligendi veniam modi at! Consequatur nobis dolor ipsum tempore soluta excepturi accusantium, distinctio rem beatae exercitationem maxime labore sapiente, reprehenderit velit. Ad laboriosam, sit quidem animi laborum itaque suscipit?</p>
+          <div class="flex justify-center">
+            <button class=" inline-flex text-gray-700 py-2 px-6 focus:outline-none text-lg font-medium border-2 border-indigo-200 hover:border-2 hover:border-indigo-600 hover:text-gray-100">CONTACT ME</button>
+          </div>
+        </div>
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <img class="object-cover object-center " alt="hero" src="./HERO.png">
+        </div>
+      </div>
+    </section>
+    <section class="text-gray-700 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="text-2xl font-medium title-font mb-4 text-gray-100 tracking-widest">MY PROJECTS</h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-200 font-medium">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, consectetur a ipsa reprehenderit eaque praesentium?</p>
+        </div>
+        <div class="flex flex-wrap -m-4">
+          <div class="p-4 lg:w-1/2 ">
+            <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left bg-black ">
+              <img alt="team" class="flex-shrink-0  w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200">
+              <div class="flex-grow sm:pl-8">
+                <h2 class="title-font font-medium text-gray-100 text-2xl mb-4">Project Name</h2>
+               
+                <p class="mb-4 font-medium text-gray-200"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam a cupiditate dolore. Cupiditate repudiandae at cum ipsum recusandae placeat nemo natus magnam aperiam!</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 lg:w-1/2 ">
+            <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left bg-black ">
+              <img alt="team" class="flex-shrink-0  w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200">
+              <div class="flex-grow sm:pl-8">
+                <h2 class="title-font font-medium text-gray-100 text-2xl mb-4">Project Name</h2>
+               
+                <p class="mb-4 font-medium text-gray-200"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam a cupiditate dolore. Cupiditate repudiandae at cum ipsum recusandae placeat nemo natus magnam aperiam!</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 lg:w-1/2 ">
+            <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left bg-black ">
+              <img alt="team" class="flex-shrink-0  w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200">
+              <div class="flex-grow sm:pl-8">
+                <h2 class="title-font font-medium text-gray-100 text-2xl mb-4">Project Name</h2>
+               
+                <p class="mb-4 font-medium text-gray-200"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam a cupiditate dolore. Cupiditate repudiandae at cum ipsum recusandae placeat nemo natus magnam aperiam!</p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 lg:w-1/2 ">
+            <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left bg-black ">
+              <img alt="team" class="flex-shrink-0  w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200">
+              <div class="flex-grow sm:pl-8">
+                <h2 class="title-font font-medium text-gray-100 text-2xl mb-4">Project Name</h2>
+               
+                <p class="mb-4 font-medium text-gray-200"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam a cupiditate dolore. Cupiditate repudiandae at cum ipsum recusandae placeat nemo natus magnam aperiam!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="text-gray-700 body-font">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap w-full mb-20">
+          <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-100">BLOG POSTS</h1>
+          </div>
+          <p class="lg:w-1/2 w-full leading-relaxed text-base text-gray-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque doloribus id iusto est aliquid unde nam corrupti rem excepturi, dolorum deserunt accusantium animi quis possimus ad cum. Excepturi explicabo suscipit perferendis mollitia incidunt, repellendus debitis aperiam velit qui dolorem magnam dicta fuga reiciendis labore magni?</p>
+        </div>
+        <div class="flex flex-wrap -m-4">
+          <div class="xl:w-1/6 md:w-1/2 p-4">
+            <div class="bg-black p-6   relative transform hover:skew-y-12 transition duration-300 hover:bg-pink-200">
+              <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">BLOG</h3>
+              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Lorem Ipsum Indoor</h2>
+              <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="xl:w-1/6 md:w-1/2 p-4">
+            <div class="bg-black p-6   relative transform hover:skew-y-12 transition duration-300 hover:bg-blue-200">
+              <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">BLOG</h3>
+              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Lorem Ipsum Indoor</h2>
+              <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="xl:w-1/6 md:w-1/2 p-4">
+            <div class="bg-black p-6   relative transform hover:skew-y-12 transition duration-300 hover:bg-pink-200">
+              <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">BLOG</h3>
+              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Lorem Ipsum Indoor</h2>
+              <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="xl:w-1/6 md:w-1/2 p-4">
+            <div class="bg-black p-6   relative transform hover:skew-y-12 transition duration-300 hover:bg-pink-200">
+              <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">BLOG</h3>
+              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Lorem Ipsum Indoor</h2>
+              <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="xl:w-1/6 md:w-1/2 p-4">
+            <div class="bg-black p-6   relative transform hover:skew-y-12 transition duration-3000 hover:bg-pink-200">
+              <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">BLOG</h3>
+              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Lorem Ipsum Indoor</h2>
+              <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+          <div class="xl:w-1/6 md:w-1/2 p-4">
+            <div class="bg-black p-6   relative transform hover:skew-y-12 transition duration-300 hover:bg-blue-200">
+              <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">BLOG</h3>
+              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Lorem Ipsum Indoor</h2>
+              <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="text-gray-700 body-font">
+      <div class="container flex flex-wrap px-5 py-2 mx-auto items-center">
+        <div class="lg:w-1/2 md:w-1/2 bg-black  p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+          <h2 class="text-white text-lg font-medium title-font mb-5">CONTACT</h2>
+          <div class="relative mb-4">
+            <label for="full-name" class="leading-7 text-sm text-gray-400">Full Name</label>
+            <input type="text" id="full-name" name="full-name" class="w-full bg-gray-700   text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+          <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-400">Email</label>
+            <input type="email" id="email" name="email" class="w-full bg-gray-700   text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+          <button class="text-white border-2 py-2 px-8 focus:outline-none border-indigo-200 hover:border-indigo-600  text-lg font-medium">CONTACT</button>
+        </div>
+        <div class="flex flex-col md:w-1/2 md:pl-12">
+          <section class="text-gray-500  body-font">
+            <div class="container px-5 py-24 mx-auto">
+              <div class="flex flex-wrap -m-4 text-center">
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full bg-black">
+                  <div class="px-4 py-6 ">
+                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-blue-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full bg-black">
+                  <div class="px-4 py-6 ">
+                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-teal-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                      <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+                  </div>
+                </div>
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full bg-black">
+                  <div class="px-4 py-6 ">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-pink-400 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+                  </div>
+                </div>
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full bg-black">
+                  <div class="px-4 py-6 ">
+                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="text-blue-500 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
+                      <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </div>
+                </div>
+              
+              
+              </div>
+            </div>
+          </section>
+      </div>
+    </section>
+
+
+    
+    
+  </body>
+</html>
